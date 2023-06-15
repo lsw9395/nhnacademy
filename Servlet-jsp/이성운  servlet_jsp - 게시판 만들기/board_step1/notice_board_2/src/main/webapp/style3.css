@@ -1,0 +1,22 @@
+form{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    width: 30%;
+    height: 30%;
+    text-align: center;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+input{
+    width: 60%;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 20px;
+}
+button{
+    width: 30%;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 20px;
+}

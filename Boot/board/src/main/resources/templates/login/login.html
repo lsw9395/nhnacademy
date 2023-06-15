@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href ="/style2.css"/>
+</head>
+<body>
+<div class="div2" th:if="${session.admin!=null}">
+    <p><a href="/user_list?page=0&size=5" th:text="${#messages.msg('admin_win')}"/></p>
+    <p><a href="/post_list?page=0&size=5" th:text="${#messages.msg('post_list')}"/></p>
+    <form th:method="post" th:action="@{/logout}">
+        <button type="submit" th:text="${#messages.msg('logout')}"></button>
+    </form>
+</div>
+<div class="div2" th:if="${session.user!=null}">
+    <p><a href="/post_list?page=1" th:text="${#messages.msg('post_list')}"/></p>
+    <form th:method="post" th:action="@{/logout}">
+        <button type="submit" th:text="${#messages.msg('logout')}"></button>
+    </form>
+</div>
+</body>
+</html>

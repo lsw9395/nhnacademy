@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href ="/resources/style.css"/>
+    <style>
+      img{
+        height: 500px;
+        width: 800px;
+        object-fit: cover;
+      }
+    </style>
+</head>
+<body>
+  <h1 th:text="${user.getName()}+${#messages.msg('user_info')}"/>
+  <div th:if="${session.admin!=null}">
+    <span><a th:href="'/user_update?id='+${user.getId()}" th:text="${#messages.msg('modify')}"/> </span>
+    <span><a th:href="'/user_delete?id='+${user.getId()}" th:text="${#messages.msg('delete')}"/> </span>
+  </div>
+  <span><a th:href="'/user_list?page=1'" th:text="${#messages.msg('userlist')}"/> </span>
+  <span><a th:href="'/post_list?page=1'" th:text="${#messages.msg('post_list')}"/> </span>
+  <table>
+    <tr>
+      <th th:scope="col" th:text="${user.getName()}"/>
+      <th th:scope="col" th:if="${user.getProfileFileName() == null}">
+        <img th:src="@{/resources/no_image.png}" alt="프로필사진"/>
+      </th>
+      <td th:if="${user.getProfileFileName() != null}">
+        <img th:src="@{'/resources/'+${user.getProfileFileName()}}"/>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

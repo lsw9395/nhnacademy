@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <title>loginInfo</title>
+    <link rel="stylesheet" href ="/resources/style2.css"/>
+</head>
+<body>
+    <div th:fragment="userinfo">
+        <span th:text="${#messages.msg('id')}"/> : <span th:text="${user.userId}" ></span>
+        <span th:text="${#messages.msg('username')}"/> : <span th:text="${user.userName}" ></span>
+        <form th:method="post" th:action="@{/logout.do}"><button type="submit" th:text="${#messages.msg('logout')}"/></form>
+        <span><a href="?locale=en">English(영어)</a></span>
+        <span><a href="?locale=ko">한국어(Korean)</a></span>
+    </div>
+</body>
+</html>

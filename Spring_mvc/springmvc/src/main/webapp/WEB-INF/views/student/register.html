@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <title>register</title>
+    <link rel="stylesheet" href="/resources/style.css" />
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <form method="post" th:action="@{ ${ student.id == null ? '/student/register.do':'/student/update.do'}}" th:object="${student}">
+    <table>
+        <tbody>
+        <tr>
+            <td style="width: 30%;" th:text="${#messages.msg('id')}"></td>
+            <td><input type="text" th:field="*{id}" required/></td>
+        </tr>
+        <tr>
+            <th th:text="${#messages.msg('username')}"></th>
+            <td><input type="text" th:field="*{name}" required /></td>
+        </tr>
+        <tr>
+            <td th:text="${#messages.msg('gender')}"></td>
+            <td>
+                <input type="radio" th:field="*{gender}" value="M" th:checked="${student.gender == 'M'}" th:text="${#messages.msg('man')}"/>
+                <input type="radio" th:field="*{gender}" value="F" th:checked="${student.gender == 'F'}" th:text="${#messages.msg('woman')}"/>
+                <input type="radio" th:field="*{gender}" value="C" />??
+            </td>
+        </tr>
+        <tr>
+            <th th:text="${#messages.msg('age')}"></th>
+            <td><input type="number" th:field="*{age}" required /></td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit" th:text="${student.id == null ? #messages.msg('register') : #messages.msg('modify')}" ></button>
+    </form>
+</body>
+</html>

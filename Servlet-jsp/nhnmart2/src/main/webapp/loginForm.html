@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        form{
+            position: absolute;
+            top: 35%;
+            left: 35%;
+            width: 30%;
+            height: 30%;
+            text-align: center;
+            padding-top: 60px;
+            box-sizing: border-box;
+        }
+        input{
+            width: 60%;
+            height: 50px;
+            font-size: 25px;
+            border-radius: 20px;
+        }
+        button{
+            width: 30%;
+            height: 30px;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/login">
+        <p><input type="text" name="userId" placeholder="아이디: lee" required/></p>
+        <p><input type="password" name="userPassword" placeholder="비밀번호: 1234" required/></p>
+        <p><button type="submit">로그인</button></p>
+    </form>
+</body>
+</html>

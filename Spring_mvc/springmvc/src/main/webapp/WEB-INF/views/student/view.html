@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <title>학생-조회</title>
+    <link rel="stylesheet" href="/resources/style.css" />
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <table>
+        <h1 th:text="${student.name}"></h1>
+        <tbody>
+
+        <tr>
+            <th th:text="${#messages.msg('id')}"></th>
+            <td th:text="${student.id}" ></td>
+        </tr>
+
+        <tr>
+            <th th:text="${#messages.msg('username')}"></th>
+            <td th:text="${student.name}"></td>
+        </tr>
+
+        <tr>
+            <th th:text="${#messages.msg('gender')}"></th>
+            <td th:text="${#genderTag.gender(student.gender)}"></td>
+        </tr>
+
+        <tr>
+            <th th:text="${#messages.msg('age')}"></th>
+            <td th:text="${student.age}"></td>
+        </tr>
+        <tr>
+            <th th:text="${#messages.msg('cmd')}"></th>
+            <td th:text="${#temporals.format(student.createdAt)}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li><a href="/student/list.do" th:text="${#messages.msg('std_list')}"></a></li>
+        <li>
+            <a th:href="@{/student/update.do(id=${student.id})}" th:text="${#messages.msg('modify')}"></a>
+        </li>
+        <li>
+            <form method="post" action="/student/delete.do">
+                <input type="hidden" name="id" th:value="${student.id}" />
+                <button type="submit"th:text="${#messages.msg('delete')}"></button>
+            </form>
+        </li>
+
+    </ul>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href ="/resources/style.css"/>
+</head>
+<body>
+  <form method="post" th:action="${user==null} ? '/user_register' : '/user_update' " th:object="${userRegisterRequest}" enctype="multipart/form-data">
+    <table>
+        <tr>
+          <th th:scope="col" th:style="'width: 30%;'" th:text="${#messages.msg('id')}"/>
+          <th><input type="text" class="input-field" name="id" th:readonly="${user!=null}" required th:value="${user!=null} ? ${user.getId()}:''">
+            <p th:scope="col" th:each="item : ${#fields.errors('id')}" th:text="${item}" class="error-message"/></th>
+        </tr>
+        <tr>
+          <td th:text="${#messages.msg('pwd')}"></td>
+          <td><input type="password" class="input-field" name="password" required th:value="${user!=null} ?${user.getPassword()}:''">
+            <p th:each="item : ${#fields.errors('password')}" th:text="${item}" class="error-message"/></td>
+        </tr>
+        <tr>
+          <td th:text="${#messages.msg('username')}"></td>
+          <td><input type="text" class="input-field" name="name" required th:value="${user!=null} ?${user.getName()}:''">
+            <p th:each="item : ${#fields.errors('name')}" th:text="${item}" class="error-message"/></td>
+        </tr>
+        <tr>
+          <td th:text="${#messages.msg('profile')}"/>
+          <td><input type="file" name="file"></td>
+        </tr>
+    </table>
+    <button type="submit" th:text="${user==null? #messages.msg('register'):#messages.msg('modify')}"></button>
+  </form>
+</body>
+</html>

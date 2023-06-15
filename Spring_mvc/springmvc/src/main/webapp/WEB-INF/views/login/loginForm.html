@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <title>login</title>
+  <style>
+    form{
+      position: absolute;
+      top: 35%;
+      left: 35%;
+      width: 30%;
+      height: 30%;
+      text-align: center;
+      padding-top: 60px;
+      box-sizing: border-box;
+    }
+    input{
+      width: 60%;
+      height: 50px;
+      font-size: 25px;
+      border-radius: 20px;
+    }
+    button{
+      width: 30%;
+      height: 30px;
+      font-size: 20px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form th:method="post" th:action="@{/login/}" th:object="${loginRequest}">
+    <p><input type="text" name="userId" placeholder="아이디: admin"/>
+      <p th:each="item : ${#fields.errors('userId')}" th:text="${item}" class="error-message"/>
+    </p>
+    <p><input tpye="password" name="userPassword" placeholder="비밀번호: 1234"/>
+    <p th:each="item : ${#fields.errors('userPassword')}" th:text="${item}" class="error-message"/>
+    <p th:if="${not #strings.isEmpty(message)}" th:text="${message}" class="error-message"></p>
+    <p><button tpye="submit"><span th:text="${#messages.msg('login')}"/></button></p>
+    <p th:text="${#messages.msg('sign_up')}"></p>
+    <span><a href="?locale=en">English(영어)</a></span>
+    <span><a href="?locale=ko">한국어(Korean)</a></span>
+  </form>
+</body>
+</html>

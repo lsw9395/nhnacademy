@@ -1,0 +1,10 @@
+
+[	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(ö²ñ
+a
+java:S1192/"FDefine a constant instead of duplicating this literal "group" 3 times.(™Úˆ¶üÿÿÿÿ
+]	java:S125#"<This block of commented-out lines of code should be removed.(°ó‰¸ûÿÿÿÿ8°âı‚õ0
+t
+java:S19896"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(ãÔÉøÿÿÿÿ
+W
+java:S1989:"AHandle the "RuntimeException" thrown here in a "try/catch" block.(ö²ñ
+]	java:S125@"<This block of commented-out lines of code should be removed.(ò”ä£şÿÿÿÿ8Í“ş‚õ0

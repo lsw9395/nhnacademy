@@ -1,0 +1,6 @@
+
+a
+java:S1192"FDefine a constant instead of duplicating this literal "admin" 3 times.(Ï¸“äüÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(òĞÃ«
+s
+java:S1450"]Remove the "userRepository" field and declare it as a local variable in the relevant methods.(×Š¾

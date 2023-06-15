@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nhnacademy.todo.mapper.EventMapper" >
+
+    <insert id="save" parameterType="com.nhnacademy.todo.domain.Event">
+        insert into event set
+                              user_id=#{userId},
+                              subject=#{subject},
+                              event_at=#{eventAt},
+                              created_at=now()
+
+        <selectKey keyProperty="id" resultType="Long">
+            select last_insert_id()
+        </selectKey>
+    </insert>
+    <update id="update" parameterType="com.nhnacademy.todo.domain.Event">
+        UPDATE event SET
+                         subject=#{subject}
+                    Where user_id=#{userId} and id=#{id}
+    </update>
+    <delete id="deleteById" parameterType="Map">
+        DELETE FROM event where user_id = #{userId} and id=#{id}
+    </delete>
+    <delete id="deletebyDaily" parameterType="map">
+        DELETE FROM event WHERE user_id =#{userId} and event_at =#{targetDate}
+    </delete>
+    <select id="getEvent" parameterType="Long" resultType="com.nhnacademy.todo.domain.Event">
+        SELECT user_id ,subject ,event_at ,created_at FROM event WHERE id =#{id}
+    </select>
+    <select id="findAllByDay" parameterType="map" resultType="com.nhnacademy.todo.domain.Event">
+        SELECT user_id ,subject ,event_at ,created_at from event WHERE user_id=#{userId} and event_at =#{eventAt}
+    </select>
+    <select id="findAllByMonth" parameterType="map" resultType="com.nhnacademy.todo.domain.Event">
+        SELECT user_id ,subject ,event_at ,created_at from event WHERE event_at like CONCAT('%',#{eventAt},'%')
+    </select>
+    <select id="countByUserIdAndEventAt" parameterType="map" resultType="java.lang.Long">
+        SELECT count(*) from event where event_at = #{targetDate}
+    </select>
+</mapper>

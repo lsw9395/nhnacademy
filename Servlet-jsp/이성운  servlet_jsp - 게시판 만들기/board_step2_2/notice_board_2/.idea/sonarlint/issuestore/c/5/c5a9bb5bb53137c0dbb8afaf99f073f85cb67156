@@ -1,0 +1,35 @@
+
+`	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+`	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+`	java:S112="FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+J
+java:S3740"/Provide the parametrized type for this generic.(ªΫυγϋÿÿÿÿ
+J
+java:S3740"/Provide the parametrized type for this generic.(ªΫυγϋÿÿÿÿ
+x
+java:S1488w"]Immediately return this expression instead of assigning it to the temporary variable "posts".(ω¥πόÿÿÿÿ
+j
+java:S1450"TRemove the "posts" field and declare it as a local variable in the relevant methods.(υ…µω
+W
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(εΚΏλ
+M
+java:S1135""2Complete the task associated to this TODO comment.(ναΝ²ψÿÿÿÿ
+Z
+java:S2147-"DCombine this catch with the one at line 43, which has the same body.(ο­£Δ
+T
+java:S1117G"9Rename "posts" which hides the field declared at line 25.(ω¥πόÿÿÿÿ
+T
+java:S1117P"9Rename "posts" which hides the field declared at line 25.(ω¥πόÿÿÿÿ
+T
+java:S1117`"9Rename "posts" which hides the field declared at line 25.(ω¥πόÿÿÿÿ
+T
+java:S1117l"9Rename "posts" which hides the field declared at line 25.(ω¥πόÿÿÿÿ
+T
+java:S1117w"9Rename "posts" which hides the field declared at line 25.(ω¥πόÿÿÿÿ
+T
+java:S1117{"9Rename "posts" which hides the field declared at line 25.(ω¥πόÿÿÿÿ
+U
+java:S1117"9Rename "posts" which hides the field declared at line 25.(ω¥πόÿÿÿÿ
+D
+java:S1128
+")Remove this unused import 'java.net.URL'.(ρμΑ„όÿÿÿÿ

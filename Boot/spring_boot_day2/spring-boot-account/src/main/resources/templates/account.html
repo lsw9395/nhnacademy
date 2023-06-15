@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account-Data</title>
+</head>
+<body>
+    <h1 style="color: blue;">계좌번호</h1>
+    <h2 th:text="${account.number}"></h2>
+    <h1 style="color: red;">잔액</h1>
+    <h2 th:text="${account.balance}"></h2>
+</body>
+</html>

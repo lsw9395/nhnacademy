@@ -1,0 +1,71 @@
+### department 등록
+POST http://localhost:8080/departments
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "id":"CS0012",
+  "name":"고객서비스1팀"
+}
+
+### department 조회
+GET http://localhost:8080/departments/CS0012
+Content-Type: application/json
+X-USER-ID: nhnacademy
+
+### department 수정
+PUT http://localhost:8080/departments/CS0012
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "name" : "CS1팀"
+}
+
+### department 삭제
+DELETE http://localhost:8080/departments/CS0012
+X-USER-ID:nhnacademy
+
+### department-members 조회
+
+GET http://localhost:8080/department-members?departmentIds=CS001
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### department-members 파라미터 누락
+
+GET http://localhost:8080/department-members
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### department-members 빈 파라미터
+
+GET http://localhost:8080/department-members?departmentIds=
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### department-memebers 지원하지 않는 content-type
+GET http://localhost:8080/department-members?departmentIds=CS001
+Accept:application/csv
+X-USER-ID:nhnacademy
+
+### department-member 허용되지 않은 X-USER-ID
+GET http://localhost:8080/department-members?departmentIds=CS001
+Accept:application/json
+X-USER-ID:marco
+
+### department-member 빈 X-USER-ID
+GET http://localhost:8080/department-members?departmentIds=CS001
+Accept:application/json
+X-USER-ID:
+
+### department-member X-USER-ID 누락
+
+GET http://localhost:8080/department-members?departmentIds=CS001
+Accept:application/json
+
+### departments xml로 받기
+GET http://localhost:8080/departments/CS001
+Content-Type: application/xml
+Accept:application/xml
+X-USER-ID:nhnacademy

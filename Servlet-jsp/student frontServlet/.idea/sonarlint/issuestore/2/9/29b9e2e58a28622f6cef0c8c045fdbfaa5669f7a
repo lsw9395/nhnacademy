@@ -1,0 +1,13 @@
+
+g	java:S112 "FDefine and throw a dedicated exception instead of using a generic one.(ÓÜ“‡ıÿÿÿÿ8ì–€ƒõ0
+b	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(ö²ñ8í–€ƒõ0
+h
+java:S1192/"FDefine a constant instead of duplicating this literal "group" 3 times.(™Úˆ¶üÿÿÿÿ8í–€ƒõ0
+c
+java:S1989 "AHandle the "RuntimeException" thrown here in a "try/catch" block.(ÓÜ“‡ıÿÿÿÿ8õ–€ƒõ0
+]	java:S125#"<This block of commented-out lines of code should be removed.(°ó‰¸ûÿÿÿÿ8ç”ƒõ0
+{
+java:S19896"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(ãÔÉøÿÿÿÿ8÷–€ƒõ0
+^
+java:S1989:"AHandle the "RuntimeException" thrown here in a "try/catch" block.(ö²ñ8÷–€ƒõ0
+]	java:S125?"<This block of commented-out lines of code should be removed.(ò”ä£şÿÿÿÿ8÷ªƒƒõ0

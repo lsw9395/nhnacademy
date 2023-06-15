@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nhnacademy.springmvc.postlist.mapper.PostMapper">
+
+    <insert id="save" parameterType="com.nhnacademy.springmvc.postlist.domain.Post">
+        insert into Posts set
+                              title = #{title},
+                              content = #{content},
+                              writerUserId = #{writerUserId},
+                              writeTime = now(),
+                              viewCount = #{viewCount}
+        <selectKey keyProperty="id" resultType="Long">
+            select last_insert_id()
+        </selectKey>
+    </insert>
+    <update id="update" parameterType="com.nhnacademy.springmvc.postlist.domain.Post">
+        UPDATE Posts SET
+                         title=#{title},
+                         content=#{content},
+                         viewCount =#{viewCount}
+            where id=#{id}
+    </update>
+    <delete id="remove">
+        DELETE from Posts where id=#{id}
+    </delete>
+    <select id="getPost" resultType="com.nhnacademy.springmvc.postlist.domain.Post">
+        SELECT id,title,content,writerUserId,writeTime,viewCount FROM Posts where id=#{id}
+    </select>
+    <select id="getPosts" resultType="com.nhnacademy.springmvc.postlist.domain.Post">
+        SELECT id,title,content,writerUserid,writeTime,viewCount FROM Posts
+    </select>
+    <select id="getTotalCount" resultType="java.lang.Long">
+        SELECT count(*) from Posts
+    </select>
+</mapper>

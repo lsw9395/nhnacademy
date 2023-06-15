@@ -1,0 +1,23 @@
+
+`	java:S112%"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S1126"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+[	java:S112?"FDefine and throw a dedicated exception instead of using a generic one.(ÓÁÀ¯
+x
+java:S1488o"]Immediately return this expression instead of assigning it to the temporary variable "users".(Çé¬øÿÿÿÿ
+o
+java:S1450"TRemove the "users" field and declare it as a local variable in the relevant methods.(œ½‡Êùÿÿÿÿ
+c
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(¡ö”«ÿÿÿÿÿ8òù—ö0
+M
+java:S1135"2Complete the task associated to this TODO comment.(íáÍ²øÿÿÿÿ
+Z
+java:S2147&"DCombine this catch with the one at line 36, which has the same body.(ï­£Ä
+T
+java:S1117H"9Rename "users" which hides the field declared at line 20.(Çé¬øÿÿÿÿ
+T
+java:S1117W"9Rename "users" which hides the field declared at line 20.(Çé¬øÿÿÿÿ
+T
+java:S1117c"9Rename "users" which hides the field declared at line 20.(Çé¬øÿÿÿÿ
+T
+java:S1117o"9Rename "users" which hides the field declared at line 20.(Çé¬øÿÿÿÿ

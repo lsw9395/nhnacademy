@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>index</title>
+        <meta charset=UTF-8">
+        <!-- <script type="text/javascript" src="./script5.js"></script> -->
+        <script type="text/javascript" src="./script6.js"></script>
+        <style>
+            .target{
+                padding-left: 0px;
+            }
+            span{
+                margin: 10px;
+                font-weight: bold;
+            }
+            table {
+                width: 100%;
+                border: 1px solid #444444;
+                border-collapse: collapse;
+                margin: 20px;
+            }
+            td {
+                border: 1px solid #444444;
+                text-align: center;
+                font-weight: bold;
+            }
+            th{
+                border-top: #444444;
+                background-color: lightgray;
+                width: 50px;
+                font-weight: bold;
+            }
+            div{
+                margin-left: 50px;
+                margin-bottom: 50px;
+                margin-right: 50px;
+                padding: 50px;
+                border-color: lightblue;
+                border-width: 1;
+                border-style: solid;
+            }
+            h1{
+                margin:0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form id="loginFormContainer">
+            <div>
+                <span>아이디: <input tpye="text" id="id"></span>
+                <span>비밀번호: <input tpye="password" id="password"></span>
+                <span><button type="sumit">로그인</button></span>
+            </div>
+        </form>
+        <form id="loginSuccessContainer" style="display: none;">
+            <div>
+                <span>아이디: <span id="userId" style="color:blueviolet" ></span></span>
+                <span>이름: <span id="userName" style="color:blueviolet"></span></span>
+                <span>카트번호: <span id="cartID" style="color:blueviolet"></span></span>
+            </div>
+        </form>
+
+        <div class="target">
+            <h1>장바구니</h1>
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>제품(id)</th>
+                        <th>제품(명)</th>
+                        <th>가격</th>
+                        <th>수량</th>
+                        <th>합계</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

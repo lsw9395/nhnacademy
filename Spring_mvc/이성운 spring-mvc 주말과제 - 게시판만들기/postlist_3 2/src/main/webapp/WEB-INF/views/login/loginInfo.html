@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+    <title>loginInfo</title>
+    <link rel="stylesheet" href ="/resources/style2.css"/>
+</head>
+<body>
+<div th:class="div3" th:fragment="userinfo">
+    <div th:text="${#messages.msg('totalvisitorcount')}+': '+${visitorCounter}"></div>
+    <span th:if="${session.admin!=null}" th:text="${#messages.msg('id')}+':'+${session.admin.getId()}"/>
+    <span th:if="${session.admin!=null}" th:text="${#messages.msg('username')}+':'+${session.admin.getName()}"/>
+    <span th:if="${session.admin==null}" th:text="${#messages.msg('id')}+':'+${session.user.getId()}"/>
+    <span th:if="${session.admin==null}" th:text="${#messages.msg('username')}+':'+${session.user.getName()}"/>
+    <form th:method="post" th:action="@{/logout}"><button type="submit" th:text="${#messages.msg('logout')}"/></form>
+    <div th:if="${param.page!=null}" th:with="currentPage=${param.page != null ? param.page : 1}">
+        <a th:href="'?page='+${currentPage}+'&amp;locale=ko'">한국어(Korean)</a>
+        <a th:href="'?page='+${currentPage}+'&amp;locale=en'">English(영어)</a>
+    </div>
+</div>
+</body>
+</html>

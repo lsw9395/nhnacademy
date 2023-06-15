@@ -1,0 +1,11 @@
+
+Z	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(”ÇÑ?
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(òĞÃ«
+b
+java:S1128"ERemove this unused import 'com.nhnacademy.notice_board.objects.Post'.(±ÚŞÎ8ã™µÜõ0
+l
+java:S1128"ORemove this unused import 'com.nhnacademy.notice_board.objects.PostRepository'.(°±Ú¬8ä™µÜõ0
+k
+java:S1128"IRemove this unused import 'com.nhnacademy.notice_board.util.CookieUtils'.(§âÉøÿÿÿÿ8‹Õ¹Üõ0
+S
+java:S1128"6Remove this unused import 'javax.servlet.http.Cookie'.(«Şªü8‹Õ¹Üõ0

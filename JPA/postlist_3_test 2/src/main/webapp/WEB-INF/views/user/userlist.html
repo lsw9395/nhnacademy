@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href ="/resources/style.css"/>
+  <style>
+    img{
+      height: 250px;
+      width: 250px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+<h1 th:text="${#messages.msg('userlist')}"/>
+<table>
+    <tr>
+        <th th:scope="col" th:if="${session.admin!=null}" th:style="'width:20%;'" th:text="${#messages.msg('id')}"/>
+        <th th:scope="col" th:if="${session.admin!=null}" th:style="'width:20%;'" th:text="${#messages.msg('pwd')}"/>
+        <th th:scope="col"  th:style="'width:20%;'" th:text="${#messages.msg('username')}"/>
+        <th th:scope="col"  th:style="'width:20%;'" th:text="${#messages.msg('profile')}"/>
+    </tr>
+        <tr th:each="user : ${pages.getList()}">
+            <td th:if="${session.admin!=null}" th:text="${user.getId}">
+            <td th:if="${session.admin!=null}" th:text="${user.getPassword}">
+            <td><a th:href="@{/user_view(id=${user.getId()})}" th:text="${user.getName()}"></a></td>
+            <td th:if="${user.getProfileFileName() == null}">
+                <img th:src="@{/resources/no_image.png}" alt="프로필사진"/>
+            </td>
+            <td th:if="${user.getProfileFileName() != null}">
+                <img th:src="@{'/resources/'+${user.getProfileFileName()}}"/>
+            </td>
+        </tr>
+</table>
+<a th:if="${startPage>1}" th:href="@{/user_list(page=${startPage - 1})}" th:text="이전"/>
+<span th:each="page: ${#numbers.sequence(startPage,endPage)}">
+  <a th:href="@{/user_list(page=${page})}" th:text="${page}"></a>
+  </span>
+<a th:if="${endPage<pages.totalPageCount}" th:href="@{/user_list(page=${endPage+1})}" th:text="다음"/>
+</body>
+</html>

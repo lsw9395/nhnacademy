@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    <context:property-placeholder location="classpath:url.properties"/>
+    <bean id="resttemplate" class="org.springframework.web.client.RestTemplate">
+
+    </bean>
+    <bean id="doorayHookSender" class="com.nhnacademy.edu.springframework.DoorayHookSender">
+        <constructor-arg index="0" ref="resttemplate"/>
+        <constructor-arg index="1" value="${url}"/>
+    </bean>
+
+    <bean id="doorayMessageSender" class="com.nhnacademy.edu.springframework.DoorayMessageSender">
+        <constructor-arg ref="doorayHookSender"/>
+    </bean>
+    <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.SmsMessageSender">
+
+    </bean>
+    <bean id="emailMessageSender" class="com.nhnacademy.edu.springframework.EmailMessageSender">
+
+    </bean>
+    <bean id="messageSendService" class="com.nhnacademy.edu.springframework.MessageSendService">
+        <constructor-arg ref="doorayMessageSender"/>
+    </bean>
+    <bean id="elapsedTimeAspect" class="com.nhnacademy.edu.springframework.aspect.ElapsedTimeAspect"></bean>
+    <aop:config>
+        <aop:aspect id="elapsedTime" ref="elapsedTimeAspect">
+            <aop:around
+                    pointcut="@annotation(com.nhnacademy.edu.springframework.annotation.ElapsedTimeLog)"
+                    method="doTimeCheck"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

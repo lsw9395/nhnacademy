@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href ="/style.css"/>
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+  <h1 th:text="${#messages.msg('post')}"/>
+  <table>
+    <tr>
+      <th th:scope="col" th:style="'width:15%;'" th:text="${#messages.msg('postnum')}"></th>
+      <th th:scope="col" th:text="${#messages.msg('title')}"></th>
+      <th th:scope="col" th:style="'width:18%;'" th:text="${#messages.msg('username')}"></th>
+      <th th:scope="col" th:style="'width:10%;'" th:text="${#messages.msg('posttime')}"></th>
+      <th th:scope="col"th:style="'width:8%;'" th:text="${#messages.msg('viewcount')}"></th>
+    </tr>
+    <tr th:each="post:${datas}">
+      <td th:text="${post.getId()}"/>
+      <td><a th:text="${post.getTitle()}"/></td>
+      <td th:text="${post.user.getId()}"></td>
+      <td th:text="${#temporals.format(post.getWriteTime())}"/>
+      <td th:text="${post.viewCount}"/>
+    </tr>
+  </table>
+  <a th:if="${startPage>1}" th:href="@{/post_list(page=${startPage - 1})}" th:text="이전"/>
+  <span th:each="page: ${#numbers.sequence(startPage,endPage)}">
+  <a th:href="@{/post_list(page=${page - 1},size=5)}" th:text="${page}"></a>
+  </span>
+    <a th:if="${endPage<pages.getTotalPages()}" th:href="@{/post_list(page=${endPage+1})}" th:text="다음"/>
+</body>
+</html>

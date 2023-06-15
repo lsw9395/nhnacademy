@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+  <meta charset="UTF-8"/>
+  <title>student - list</title>
+  <link rel="stylesheet" href="/resources/style4.css" />
+</head>
+<body>
+<th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+<h1 th:text="${#messages.msg('std_list')}"></h1>
+<p><a href="/student/register.do" th:text="${#messages.msg('register')}"></a></p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;" th:text="${#messages.msg('id')}"></th>
+        <th style="width: 20%;"th:text="${#messages.msg('name')}"></th>
+        <th style="width: 20%;"th:text="${#messages.msg('gender')}"></th>
+        <th style="width: 20%;"th:text="${#messages.msg('age')}"></th>
+        <th style="width: 20%;"th:text="${#messages.msg('cmd')}"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="item : ${studentList}" >
+          <td th:text="${item.id}"></td>
+          <td th:text="${item.name}"></td>
+          <td th:text="${#genderTag.gender(item.gender)}"></td>
+          <td th:text="${item.age}"></td>
+          <td>
+            <a th:href="@{/student/view.do(id=${item.id})}" th:text="${#messages.msg('check')}"></a>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

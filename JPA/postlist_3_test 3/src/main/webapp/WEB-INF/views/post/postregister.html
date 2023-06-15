@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href ="/resources/style.css"/>
+</head>
+<body>
+<form method="post" th:action="${post==null} ? '/post_register' : '/post_update' " th:object="${postRegisterRequest}">
+    <table>
+        <tr>
+            <th th:scope="col" th:style="'width:30%; font-size:40px;'" th:text="${#messages.msg('title')}"></th>
+            <th th:scope="col">
+                <input type="text" id="title" name="title" th:value="${post!=null}?${post.getTitle()}:''">
+                <p th:each="item : ${#fields.errors('title')}" th:text="${item}" class="error-message"/></th>
+        </tr>
+        <tr>
+            <td colspan="2" th:style="'font-size: 40px;'" th:text="${#messages.msg('content')}"/>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <textarea cols="100" rows="10" id="content" name="content" th:text="${post!=null}?${post.getContent()}:''"></textarea>
+                <p th:each="item : ${#fields.errors('content')}" th:text="${item}" class="error-message"/>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" id="id" name="id" th:value="${post!=null}?${post.getId()}:''"/>
+    <button type="submit" th:text="${post==null? #messages.msg('register'):#messages.msg('modify')}"></button>
+</form>
+</body>
+</html>

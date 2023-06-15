@@ -1,0 +1,12 @@
+
+GET /users/user1
+Accept: application/json
+Host: localhost:8080
+###
+GET /users/?page=1&size=3
+Content-Type: application/json
+Host: localhost:8080
+###
+GET /users?page=0&size=3
+Content-Type: application/json
+Host: localhost:8080
